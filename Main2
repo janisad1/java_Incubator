@@ -87,7 +87,7 @@ public class Main2
         String newWord = wordToCheck;
         int cLim = charLimit;
         String partOne = newWord+"...";
-        
+        //tu cos dodam
         return partOne;       
     }
 
