@@ -1,0 +1,96 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ChallengeOneWithMaria;
+
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author JANISAD1
+ */
+public class Main2 
+{
+
+    public static void main(String[] args) 
+    {
+        String text = "Tekst do podziału, powinien miec troche znakow";
+        int charLimit = 25;
+        
+        buildTable(text, charLimit);
+        
+        /*
+           1. przyjmujemy teks
+           2. przyjmujemy długość
+           3. Iteracja przez tablice słów
+           4. Po osiągnięciu limitu słów: 
+              - oprogramowanie wyjątków
+              - Sprawdzenie czy jakieś słowo jest dłuższe niż limit słów
+              - Wypisanie interesujących nas słów
+        */
+        
+        
+    }
+
+    static void buildTable(String text , int charLimit)
+    {
+        // podział tekstu na słowa 
+        // słowo czyli ciąg znaków od spacji do spacji
+        String[] splitted = text.split(" ");
+        
+        // char limit
+        int charLim = charLimit;
+        
+        // wypisanie wszystkich słów
+        for(int i = 0 ; i < splitted.length ; i++)
+        {
+            System.out.println(splitted[i] + "(znakow: " + splitted[i].length() + ")" );
+        }
+        
+        // stworzenie nowego Stringa tmp żeby zachować podzielony teks
+        String tmpText;
+        
+        // przejście przez tablicę
+        for(int i = 0 ; i < splitted.length - 1 ; i++)
+        {
+            tmpText = splitted[i];
+//            if(tmpText.length() < charLim)
+//            {
+//                tmpText = tmpText + " " + splitted[i + 1];
+//                System.out.println(tmpText);
+//            }
+//            else
+//            {
+//                System.out.println("Else");
+//            }
+            // Sprawdzenie długości splitted[0]
+            // 
+            while ((tmpText + 1 + splitted[i + 1]).length() <= charLimit && i + 1 < splitted.length - 1) 
+            {  
+                tmpText = tmpText + " " + splitted[i + 1];
+                i++;
+            }
+            
+            
+            System.out.println("WHILE: " + tmpText );
+        }
+        
+        
+        
+    }
+    
+    static String checkLength(String wordToCheck , int charLimit)
+    {
+        String newWord = wordToCheck;
+        int cLim = charLimit;
+        String partOne = newWord+"...";
+        
+        return partOne;       
+    }
+
+
+    
+}
