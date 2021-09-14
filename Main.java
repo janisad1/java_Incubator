@@ -67,11 +67,15 @@ public class Main {
         int index = 0;
         int end = elements.size();
         String[] splitted = new String[end];
+
         int i = 0;
         for(String element:elements) {
             splitted[i] = element;
+
             i++;
         }
+
+
 
         // char limit
         int charLim = limit;
@@ -81,21 +85,27 @@ public class Main {
         String tmpText = "";
 
         // przejście przez tablicę
-
+        int index_ = 0;
         for(int j = 0 ; j < splitted.length-1; j++)
         {
 
             tmpText = tmpText + splitted[j]+ " ";
 
-            if(tmpText.length() + splitted[j+1].length() > charLim && j+1 < splitted.length-1){
+            if(tmpText.length() + splitted[j+1].length() > charLim){
                 counter++;
                 out.add(tmpText);
                 tmpText = "";
+                index_ = j;
 
-            }else if(j+1>splitted.length-2){
+
+            }
+            if(j+1>splitted.length-2){
+
                 counter++;
-                for(int z = j+1; z<splitted.length; z++){
+
+                for(int z = index_+1; z<splitted.length; z++){
                     tmpText = tmpText + splitted[z];
+
                 }
                 out.add(tmpText);
             }
@@ -103,6 +113,8 @@ public class Main {
 
 
         }
+
+
 
 
         //
